@@ -1,0 +1,12 @@
+# vexspace.github.io — GitHub Pages(Jekyll) 설정. 이 저장소가 허브(첫 화면·레이아웃·프로젝트 목록)의 원본이다.
+# 프로젝트 폴더(calit/, md-reader/ …) 안의 문서는 각 프로젝트 저장소의 워크플로가 밀어 넣는다 — README 참고.
+title: VexSpace
+description: 개인 개발자 Vex가 운영하는 작은 공간의 공개 문서
+lang: ko
+timezone: Asia/Seoul
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - README.md
