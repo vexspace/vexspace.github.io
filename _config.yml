@@ -1,0 +1,13 @@
+# vexspace.github.io — GitHub Pages(Jekyll) 설정.
+# ⚠️ 이 디렉터리(site/)는 calit 저장소가 원본이고, 공개 저장소 vexspace/vexspace.github.io는
+# .github/workflows/publish-privacy-policy.yaml 이 통째로 덮어쓰는 산출물이다. 공개 저장소를 직접 고치지 말 것.
+title: vexspace
+description: vexspace 공개 문서
+lang: ko
+timezone: Asia/Seoul
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - README.md
