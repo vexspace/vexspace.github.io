@@ -1,16 +1,16 @@
 ---
 layout: doc
 title: 개인정보 처리방침
-description: md-reader 앱과 이메일 문의 처리에서 다루는 개인정보의 항목, 목적, 보유 기간, 국외 이전과 권리 행사 방법
+description: Pagemark 앱과 이메일 문의 처리에서 다루는 개인정보의 항목, 목적, 보유 기간, 국외 이전과 권리 행사 방법
 project: md-reader
 doc: true
-updated: 2026-09-16
+updated: 2026-09-17
 permalink: /md-reader/privacy.html
 ---
 
-# md-reader 개인정보 처리방침
+# Pagemark 개인정보 처리방침
 
-vexspace(개인 개발자, 이하 "운영자")는 Android 앱 **md-reader**(이하 "서비스")와 이메일 문의 처리 과정에서 개인정보를 처리합니다.
+vexspace(개인 개발자, 이하 "운영자")는 Android 앱 **Pagemark**(패키지명 team.vexspace.pagemark, 이하 "서비스")와 이메일 문의 처리 과정에서 개인정보를 처리합니다.
 운영자는 「개인정보 보호법」 및 관계 법령을 준수하며, 같은 법 제30조에 따라 다음과 같이 개인정보 처리방침을 공개합니다.
 
 ## 제1조 (개인정보의 처리 목적 및 법적 근거)
@@ -182,7 +182,7 @@ vexspace(개인 개발자, 이하 "운영자")는 Android 앱 **md-reader**(이�
 운영자는 개인정보 처리에 관한 업무와 정보주체의 불만 처리 및 피해구제를 담당하는 개인정보 보호책임자를 다음과 같이 지정합니다.
 
 - 개인정보 보호책임자: 송용욱
-- 역할: md-reader 운영자
+- 역할: Pagemark 운영자
 - 이메일: [vexspace.io@gmail.com](mailto:vexspace.io@gmail.com)
 
 정보주체는 개인정보 처리, 권리행사, 불만 또는 피해구제에 관하여 개인정보 보호책임자에게 문의할 수 있습니다.
