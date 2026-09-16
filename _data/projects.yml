@@ -8,10 +8,10 @@
   platforms: [Android]
   icon: /assets/icons/calit.png
   # store: https://play.google.com/store/apps/details?id=team.vexspace.calit   ← 출시 후 주석 해제
-- slug: md-reader
-  name: md-reader
+- slug: pagemark            # 2026-09-17 md-reader → Pagemark 리브랜딩(저장소 이름은 vexspace/md-reader 그대로)
+  name: Pagemark
   blurb: 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어
   status: 출시 준비 중
   status_kind: prep
   platforms: [Android]   # iOS 는 당분간 지원하지 않는다(2026-09-16 사용자 결정)
-  icon: /assets/icons/md-reader.png
+  icon: /assets/icons/pagemark.png

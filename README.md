@@ -9,6 +9,7 @@ VexSpace 공개 문서 사이트(GitHub Pages, Jekyll). https://vexspace.github.
 - **프로젝트 폴더 안의 문서(`calit/privacy.md` 등)는 각 프로젝트 저장소가 원본이다.** 그 저장소의 워크플로가 자기 폴더 안 문서를
   통째로 교체한다(`index.md` 제외). 여기서 고치면 다음 동기화 때 사라진다.
   - `calit/` ← `vexspace/calit` `.github/workflows/publish-privacy-policy.yaml`
+  - `pagemark/` ← `vexspace/md-reader`(저장소 이름은 옛 이름 그대로) 같은 워크플로
 
 ## 문서 파일 규약
 
