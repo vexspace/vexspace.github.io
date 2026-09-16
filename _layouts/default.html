@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-{% assign proj = site.data.projects | where: "slug", page.project | first %}
+{% assign proj = nil %}{% if page.project %}{% assign proj = site.data.projects | where: "slug", page.project | first %}{% endif %}
   <title>{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }} · {{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   {% if proj %}<link rel="icon" href="{{ proj.icon | relative_url }}" sizes="any">{% else %}<link rel="icon" href="{{ '/assets/icons/vexspace.svg' | relative_url }}" type="image/svg+xml">{% endif %}
