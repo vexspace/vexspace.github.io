@@ -13,5 +13,5 @@
   blurb: 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어
   status: 출시 준비 중
   status_kind: prep
-  platforms: [Android, iOS]
+  platforms: [Android]   # iOS 는 당분간 지원하지 않는다(2026-09-16 사용자 결정)
   icon: /assets/icons/md-reader.png
