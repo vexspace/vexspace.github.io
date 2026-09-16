@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title and page.url != "/" %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+{% assign proj = site.data.projects | where: "slug", page.project | first %}
+  <title>{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }} · {{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
-  <link rel="icon" href="{{ '/assets/icons/calit.png' | relative_url }}" sizes="any">
+  {% if proj %}<link rel="icon" href="{{ proj.icon | relative_url }}" sizes="any">{% else %}<link rel="icon" href="{{ '/assets/icons/vexspace.svg' | relative_url }}" type="image/svg+xml">{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500&display=swap">
   <style>
@@ -85,7 +86,7 @@
   <div class="site">
     <header class="top">
       <a class="brand" href="{{ '/' | relative_url }}"><span>Vex</span>Space</a>
-      <nav class="crumbs" aria-label="경로">{% if page.project %}{% assign proj = site.data.projects | where: "slug", page.project | first %}<a href="{{ '/' | relative_url }}">홈</a> › {% if page.layout == "doc" and proj %}<a href="{{ '/' | append: proj.slug | append: '/' | relative_url }}">{{ proj.name }}</a> › {{ page.title }}{% elsif proj %}{{ proj.name }}{% endif %}{% endif %}</nav>
+      <nav class="crumbs" aria-label="경로">{% if page.project %}<a href="{{ '/' | relative_url }}">홈</a> › {% if page.layout == "doc" and proj %}<a href="{{ '/' | append: proj.slug | append: '/' | relative_url }}">{{ proj.name }}</a> › {{ page.title }}{% elsif proj %}{{ proj.name }}{% endif %}{% endif %}</nav>
     </header>
 {{ content }}
     <footer class="site-foot">
