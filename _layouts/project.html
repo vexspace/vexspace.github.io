@@ -1,0 +1,23 @@
+---
+layout: default
+---
+{% assign proj = site.data.projects | where: "slug", page.project | first %}
+{% assign docs = site.pages | where: "project", page.project | where: "doc", true | sort: "title" %}
+    <section class="project-head">
+      <img class="mark" src="{{ proj.icon | relative_url }}" alt="{{ proj.name }} 앱 아이콘" width="64" height="64">
+      <div>
+        <h1>{{ proj.name }}</h1>
+        <p>{{ proj.blurb }}</p>
+        <div class="meta"><span class="status {{ proj.status_kind }}">{{ proj.status }}</span>{% for pf in proj.platforms %}<span class="chip">{{ pf }}</span>{% endfor %}</div>
+        {% if proj.store %}<div class="links"><a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a></div>{% endif %}
+      </div>
+    </section>
+{{ content }}
+    <div class="section-label">공개 문서</div>
+{% if docs.size > 0 %}
+    <ul class="doc-list">
+{% for d in docs %}      <li><a href="{{ d.url | relative_url }}"><span><span class="doc-title">{{ d.title }}</span>{% if d.description %}<span class="doc-sub">{{ d.description }}</span>{% endif %}</span><span class="doc-date">{% if d.updated %}{{ d.updated | date: "%Y-%m-%d" }} 갱신{% endif %}</span></a></li>
+{% endfor %}    </ul>
+{% else %}
+    <div class="empty">공개 문서를 준비하고 있습니다. 출시와 함께 개인정보 처리방침이 이 자리에 게시됩니다.</div>
+{% endif %}

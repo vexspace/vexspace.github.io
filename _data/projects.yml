@@ -1,0 +1,17 @@
+# 첫 화면 갤러리와 프로젝트 페이지의 원본. 순서 = 카드 순서.
+# slug 는 폴더 이름과 같아야 한다 — 문서 파일의 front matter `project:` 가 이 값으로 자기 프로젝트를 가리킨다.
+- slug: calit
+  name: Calit
+  blurb: 기기 캘린더의 일정과 TODO를 위젯과 잠금 화면에서 바로 보고 정리하는 Android 앱
+  status: 진행 중
+  status_kind: live      # live | prep
+  platforms: [Android]
+  icon: /assets/icons/calit.png
+  # store: https://play.google.com/store/apps/details?id=team.vexspace.calit   ← 출시 후 주석 해제
+- slug: md-reader
+  name: md-reader
+  blurb: 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어
+  status: 출시 준비 중
+  status_kind: prep
+  platforms: [Android, iOS]
+  icon: /assets/icons/md-reader.png

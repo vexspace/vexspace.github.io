@@ -1,0 +1,7 @@
+---
+layout: default
+---
+    <article class="doc">
+{% if page.updated %}      <p class="doc-meta">{{ page.updated | date: "%Y-%m-%d" }} 갱신</p>
+{% endif %}{{ content }}
+    </article>
