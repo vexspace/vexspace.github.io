@@ -3,8 +3,8 @@
 - slug: calit
   name: Calit
   blurb: 기기 캘린더의 일정과 TODO를 위젯과 잠금 화면에서 바로 보고 정리하는 Android 앱
-  status: 진행 중
-  status_kind: live      # live | prep
+  status: 출시 준비 중
+  status_kind: prep      # live(진행 중·출시됨) | prep(출시 준비 중) — 출시 후 live 로 바꾼다
   platforms: [Android]
   icon: /assets/icons/calit.png
   # store: https://play.google.com/store/apps/details?id=team.vexspace.calit   ← 출시 후 주석 해제
