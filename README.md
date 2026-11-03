@@ -1,176 +1,150 @@
-<div align="center">
+<p align="center">
+  <a href="https://vexspace.github.io/"><img src="assets/readme-banner.svg" alt="VexSpace — 개인 개발자 Vex 가 만드는 작은 도구들"></a>
+</p>
 
-<a href="https://vexspace.github.io/"><img src="assets/icons/vexspace.svg" alt="VexSpace" width="72" height="72"></a>
+<p align="center">
+  <a href="https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment"><img alt="Pages" src="https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment/badge.svg"></a>
+  <a href="https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true"><img alt="Pagemark release" src="https://img.shields.io/github/v/release/vexspace/vexspace.github.io?filter=pagemark-*&label=Pagemark&color=1f5f6b"></a>
+  <a href="https://github.com/vexspace/vexspace.github.io/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/vexspace/vexspace.github.io/total?label=downloads&color=4c4e48"></a>
+  <img alt="Platforms" src="https://img.shields.io/badge/platforms-Android%20%7C%20macOS-eeefe9?labelColor=4c4e48">
+</p>
 
-# VexSpace
+<p align="center">
+  개인 개발자 Vex 가 만드는 작은 도구들을 내려받고, 공개 문서를 보는 곳입니다.
+</p>
 
-**개인 개발자 Vex 가 만드는 작은 도구들의 공개 사이트**<br>
-프로젝트 소개 · 개인정보 처리방침 같은 공개 문서 · 앱 내려받기와 업데이트 정보를 한 곳에 둡니다.
-
-[![Pages](https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment)
-[![Pagemark](https://img.shields.io/github/v/release/vexspace/vexspace.github.io?filter=pagemark-*&label=Pagemark&color=1f5f6b)](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true)
-
-[**사이트**](https://vexspace.github.io/) · [**Pagemark 내려받기**](https://vexspace.github.io/pagemark/) · [**Releases**](https://github.com/vexspace/vexspace.github.io/releases) · [**문의**](mailto:vexspace.io@gmail.com)
-
-</div>
+<p align="center">
+  <a href="#overview">Overview</a> •
+  <a href="#download">Download</a> •
+  <a href="#pagemark">Pagemark</a> •
+  <a href="#calit">Calit</a> •
+  <a href="#releases">Releases</a> •
+  <a href="#get-in-touch">Get in touch</a>
+  <br/>
+  <a href="https://vexspace.github.io/" target="_blank">🌐 사이트</a> •
+  <a href="https://vexspace.github.io/pagemark/" target="_blank">📖 Pagemark</a> •
+  <a href="https://vexspace.github.io/calit/" target="_blank">📅 Calit</a> •
+  <a href="https://github.com/vexspace/vexspace.github.io/releases" target="_blank">📦 모든 파일</a>
+</p>
 
 ---
 
-## 목차
+# Overview
 
-- [프로젝트](#프로젝트)
-- [내려받기](#내려받기)
-- [이 저장소가 하는 일](#이-저장소가-하는-일)
-- [구조](#구조)
-- [로컬에서 미리 보기](#로컬에서-미리-보기)
-- [운영 가이드](#운영-가이드)
-  - [앱 새 버전 내보내기](#앱-새-버전-내보내기)
-  - [프로젝트 추가](#프로젝트-추가)
-  - [문서 파일 규약](#문서-파일-규약)
-- [누가 무엇을 소유하나](#누가-무엇을-소유하나)
-- [문의](#문의)
+[VexSpace](https://vexspace.github.io/) 는 개인 개발자 Vex 가 운영하는 작은 공간입니다. 일상에서 직접 겪은 불편에서 출발해, 하나의 문제를 끝까지 풀어내는 작은 도구를 만듭니다.
 
-## 프로젝트
+이 저장소는 그 공개 사이트(GitHub Pages)입니다. 등록된 프로젝트마다 소개 페이지, 개인정보 처리방침 같은 공개 문서, 그리고 **설치 파일 내려받기**를 제공합니다. 설치 파일은 이 저장소의 [Releases](https://github.com/vexspace/vexspace.github.io/releases) 에 있습니다.
 
-| | 프로젝트 | 소개 | 플랫폼 | 상태 |
+| | 프로젝트 | 소개 | 플랫폼 | 내려받기 |
 |:-:|---|---|---|---|
-| <img src="assets/icons/pagemark.png" width="40" alt=""> | [**Pagemark**](https://vexspace.github.io/pagemark/) | 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어 — 폴더 트리, 링크 이동, 쪽 넘김·스크롤 보기, 보이는 그대로 편집 | Android · macOS | 출시 준비 중 |
-| <img src="assets/icons/calit.png" width="40" alt=""> | [**Calit**](https://vexspace.github.io/calit/) | 기기 캘린더의 일정과 TODO 를 위젯과 잠금 화면에서 바로 보고 정리하는 앱 | Android | 출시 준비 중 |
+| <img src="assets/icons/pagemark.png" width="36" alt=""> | [**Pagemark**](#pagemark) | 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어 | Android · macOS | ✅ [바로 받기](#pagemark) |
+| <img src="assets/icons/calit.png" width="36" alt=""> | [**Calit**](#calit) | 기기 캘린더의 일정과 TODO 를 위젯·잠금 화면에서 보고 정리하는 앱 | Android | ⏳ 출시 준비 중 |
 
-목록의 원본은 [`_data/projects.yml`](_data/projects.yml) 입니다 — 사이트 첫 화면 카드와 각 프로젝트 페이지가 여기서 만들어집니다.
+# Download
 
-## 내려받기
+가장 쉬운 방법은 각 프로젝트 페이지에서 기기에 맞는 파일을 고르는 것입니다 — 방문한 기기에 맞는 항목이 먼저 보입니다.
+파일을 직접 받으려면 아래 링크나 명령을 쓰세요.
 
-### Pagemark
+## Pagemark
 
-[**vexspace.github.io/pagemark**](https://vexspace.github.io/pagemark/) 에서 기기에 맞는 파일을 고르면 됩니다.
+<img src="assets/icons/pagemark.png" width="56" align="right" alt="Pagemark 아이콘">
 
-| 플랫폼 | 파일 | 비고 |
-|---|---|---|
-| macOS (Apple Silicon) | `Pagemark-<버전>-arm64.dmg` | 서명·공증 없음 — 처음 열 때 경고가 뜨면 Finder 에서 우클릭 › 열기 |
-| Android | `Pagemark-<버전>.apk` | "출처를 알 수 없는 앱" 허용 필요. Google Play 버전과는 서명이 달라 서로 위에 설치되지 않음 |
+마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어입니다. 폴더 트리, 문서 사이 링크 이동, 쪽 넘김·스크롤 보기, 보이는 그대로 고치는 편집 모드(자동 저장)를 제공합니다.
 
-모든 버전은 [Releases](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true) 에 있습니다 (`pagemark-v<버전>` 태그).
+📖 [소개 · 내려받기 페이지](https://vexspace.github.io/pagemark/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/pagemark/privacy.html) · 📦 [모든 버전](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true)
 
-## 이 저장소가 하는 일
+### macOS (Apple Silicon)
 
-```
-                 ┌──────────────────── vexspace.github.io (이 저장소, GitHub Pages · Jekyll) ────────────────────┐
- 방문자 ───────▶ │  첫 화면 · 프로젝트 페이지 · 내려받기 드롭다운          ← _data/projects.yml · _data/versions.yml      │
-                 │  /calit/privacy.html · /pagemark/privacy.html            ← 각 프로젝트 저장소의 워크플로가 밀어 넣음    │
- 앱(Pagemark) ─▶ │  /pagemark/version.json  (강제 업데이트 판단)           ← _data/versions.yml                          │
-                 └─────────────────────────────────────────────────────────────────────────────────────────────────┘
-                 설치 파일(.dmg · .apk)은 이 저장소의 Releases 에 — GitHub 저장소 파일은 100MB 를 넘을 수 없어서
-```
-
-- **허브** — 첫 화면, 레이아웃, 프로젝트 목록, 아이콘을 이 저장소가 직접 소유합니다.
-- **공개 문서** — 개인정보 처리방침 등은 각 프로젝트 저장소가 원본이고, 그 저장소의 워크플로가 자기 폴더만 교체합니다.
-- **앱 배포** — `_data/versions.yml` 하나가 Pagemark 페이지의 내려받기 목록과 앱이 읽는 `version.json` 을 함께 만듭니다.
-
-## 구조
-
-```
-.
-├── _config.yml                 # Jekyll 설정 (kramdown GFM, 라이트 테마 고정)
-├── _data/
-│   ├── projects.yml            # 프로젝트 목록 — 첫 화면 카드 · 프로젝트 페이지 머리
-│   └── versions.yml            # 앱 버전 · 내려받기 — version.json 과 드롭다운의 원본
-├── _includes/dl-icon.html      # 내려받기 드롭다운 아이콘 (apple · android · windows)
-├── _layouts/
-│   ├── default.html            # 공통 틀 · 스타일
-│   ├── project.html            # 프로젝트 페이지 (머리 · 내려받기 · 공개 문서 목록)
-│   └── doc.html                # 공개 문서
-├── assets/icons/               # 사이트·프로젝트 아이콘 (프로젝트는 160px PNG)
-├── index.md                    # 첫 화면
-├── pagemark-version.json       # → /pagemark/version.json (pagemark/ 폴더 밖에 두는 이유는 아래)
-├── calit/                      # index.md 는 여기서, privacy.md 는 vexspace/calit 이 밀어 넣음
-└── pagemark/                   # index.md 는 여기서, privacy*.md 는 vexspace/pagemark 이 밀어 넣음
-```
-
-## 로컬에서 미리 보기
-
-GitHub Pages 는 **Jekyll 3.10** 으로 빌드합니다. 같은 버전으로 미리 보면 올린 뒤 빌드가 깨지는 일을 막을 수 있습니다.
+[**Pagemark-1.2.0-arm64.dmg**](https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0-arm64.dmg) (131 MB) 를 받아 열고, Pagemark 를 응용 프로그램 폴더로 옮기세요.
 
 ```bash
-gem install jekyll -v 3.10.0
-gem install kramdown-parser-gfm
-jekyll serve            # → http://127.0.0.1:4000/
+curl -LO https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0-arm64.dmg
+open Pagemark-1.2.0-arm64.dmg
 ```
 
-> [!WARNING]
-> Jekyll 3.10 의 `{% include %}` 는 인자에 `p[1].icon` 같은 대괄호 값을 받지 못합니다(빌드 실패).
-> `{% assign ic = p[1].icon %}` 로 먼저 담은 뒤 `name=ic` 로 넘기세요. 다른 Liquid 엔진에서는 통과해서 놓치기 쉽습니다.
+> **참고**: 아직 Apple 공증을 받지 않았습니다. 처음 열 때 "확인되지 않은 개발자" 경고가 뜨면 Finder 에서 Pagemark 를 우클릭 › **열기** 를 누르세요.
 
-## 운영 가이드
+### Android
 
-### 앱 새 버전 내보내기
+[**Pagemark-1.2.0.apk**](https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0.apk) (5.3 MB) 를 휴대폰에서 받아 여세요. 컴퓨터에 연결해 설치할 수도 있습니다.
 
-Pagemark 앱은 켤 때마다 `https://vexspace.github.io/pagemark/version.json` 을 보고 강제 업데이트 여부를 정합니다.
-
-1. 설치 파일을 만들고 **Releases** 에 `pagemark-v<버전>` 태그로 올립니다.
-2. 올린 **뒤에** [`_data/versions.yml`](_data/versions.yml) 의 `latest` · `url` · `size` 를 바꿉니다.
-   먼저 바꾸면 받을 파일이 없는데 앱이 업데이트를 요구하게 됩니다.
-3. 커밋하고 push 하면 1~2분 뒤 페이지와 `version.json` 이 바뀝니다.
-
-```yaml
-pagemark:
-  macos:                      # 키는 앱이 읽는다 — 바꾸지 않는다 (macos · android · windows)
-    latest: "1.2.0"
-    # minimum: "1.2.1"        # 비상시에만 — 끝자리 업데이트도 강제할 때
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0-arm64.dmg
-    os: macOS                 # 드롭다운에 굵게
-    variant: Apple Silicon    # 드롭다운에 흐리게
-    icon: apple               # apple · android · windows
-    size: 131 MB
+```bash
+curl -LO https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0.apk
+adb install Pagemark-1.2.0.apk
 ```
 
-**강제 업데이트 규칙** — `minimum` 을 적으면 그 버전보다 낮은 앱은 읽기가 막히고, 비우면 `latest` 의 끝자리를 0 으로 바꾼 값이 최소 버전이 됩니다
-(앞·가운데 자리가 오르면 강제, 끝자리만 오르면 권유). 앱은 `version.json` 을 받지 못하면 마지막으로 받은 값을 쓰고, 그것도 없으면 막지 않습니다.
+> **참고**: 설치할 때 "출처를 알 수 없는 앱" 허용이 필요합니다. Google Play 에서 받은 Pagemark 와는 서명이 달라 서로 위에 설치되지 않습니다.
 
-**드롭다운** — 항목은 `versions.yml` 에 적힌 순서대로 보이고, 방문한 기기에 맞는 항목이 단추에 먼저 나옵니다. 새 플랫폼(Windows · macOS Intel 등)은 항목을 더하면 목록에 생깁니다.
+### 업데이트
 
-> [!NOTE]
-> `version.json` 을 만드는 `pagemark-version.json` 은 `pagemark/` 폴더 **밖**에 있습니다. Pagemark 저장소의 처리방침 동기화가 `pagemark/` 폴더를 통째로 교체(`index.md` 만 남김)하기 때문입니다.
+앱이 켜질 때 새 버전을 확인합니다. 꼭 필요한 업데이트가 나오면 앱 안에서 안내하고, **업데이트** 를 누르면 새 설치 파일을 받습니다 —
+버전 정보는 [`/pagemark/version.json`](https://vexspace.github.io/pagemark/version.json) 에 있습니다.
 
-### 프로젝트 추가
+## Calit
 
-1. [`_data/projects.yml`](_data/projects.yml) 에 항목을 추가합니다 — `slug` 는 폴더 이름과 같아야 합니다.
-2. `assets/icons/<slug>.png` (160px) 를 넣습니다.
-3. `<slug>/index.md` 를 만듭니다.
+<img src="assets/icons/calit.png" width="56" align="right" alt="Calit 아이콘">
 
-```yaml
----
-layout: project
-title: 프로젝트 이름
-project: <slug>
----
-```
+기기 캘린더의 일정과 TODO 를 위젯과 잠금 화면에서 바로 보고 정리하는 Android 앱입니다.
 
-### 문서 파일 규약
+📅 [소개 페이지](https://vexspace.github.io/calit/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/calit/privacy.html)
 
-프로젝트 저장소가 밀어 넣는 문서는 front matter 에 다음을 적습니다. 목록 · 경로 · 갱신일은 여기서 자동으로 만들어집니다.
+> ⏳ **출시 준비 중** — Google Play 로 출시할 예정입니다. 출시되면 이 자리에 내려받기 방법이 생깁니다.
 
-```yaml
-layout: doc
-title: 개인정보 처리방침          # 목록에 뜨는 제목
-description: 한 줄 설명            # 목록 부제(선택)
-project: calit                    # _data/projects.yml 의 slug
-doc: true                         # 목록에 포함 (이전 판처럼 목록에서 빼려면 false)
-updated: 2026-09-16               # 갱신일
-permalink: /calit/privacy.html
-```
+# Releases
 
-## 누가 무엇을 소유하나
+설치 파일은 프로젝트별 태그(`<프로젝트>-v<버전>`)로 [Releases](https://github.com/vexspace/vexspace.github.io/releases) 에 올라갑니다.
 
-| 경로 | 원본 | 고치는 곳 |
+| 프로젝트 | 최신 | 파일 |
 |---|---|---|
-| `index.md` · `_layouts/` · `_includes/` · `_data/` · `assets/` · `*/index.md` · `pagemark-version.json` | 이 저장소 | 여기서 직접 |
-| `calit/` 안의 문서 (`index.md` 제외) | [`vexspace/calit`](https://github.com/vexspace/calit) | 그 저장소 — `.github/workflows/publish-privacy-policy.yaml` 이 교체 |
-| `pagemark/` 안의 문서 (`index.md` 제외) | [`vexspace/pagemark`](https://github.com/vexspace/pagemark) | 그 저장소 — 같은 워크플로가 교체 |
+| Pagemark | [`pagemark-v1.2.0`](https://github.com/vexspace/vexspace.github.io/releases/tag/pagemark-v1.2.0) | macOS `.dmg` · Android `.apk` |
+| Calit | — | 출시 준비 중 |
 
-> [!IMPORTANT]
-> 프로젝트 폴더 안 문서를 여기서 고치면 다음 동기화 때 사라집니다. 원본 저장소에서 고치세요.
+각 릴리스 설명에 SHA-256 체크섬이 있습니다. 받은 파일을 확인하려면:
 
-## 문의
+```bash
+shasum -a 256 Pagemark-1.2.0-arm64.dmg Pagemark-1.2.0.apk
+```
 
-[vexspace.io@gmail.com](mailto:vexspace.io@gmail.com) — 각 앱의 개인정보 처리에 관한 문의도 같은 주소로 받습니다.
+# Maintaining
+
+<details>
+<summary>새 버전 내보내기 · 로컬 미리 보기 · 파일 소유</summary>
+
+### 새 버전 내보내기
+
+1. 설치 파일을 Releases 에 `<프로젝트>-v<버전>` 태그로 올립니다.
+2. 올린 **뒤에** [`_data/versions.yml`](_data/versions.yml) 의 `latest` · `url` · `size` 를 바꿉니다 — 먼저 바꾸면 받을 파일이 없는데 앱이 업데이트를 요구합니다.
+3. push 하면 1~2분 뒤 프로젝트 페이지의 내려받기와 `version.json` 이 바뀝니다. 이 README 의 버전 링크도 함께 바꿉니다.
+
+`versions.yml` 의 `minimum` 은 비상시에만 적습니다(끝자리 업데이트도 강제할 때). 비우면 `latest` 의 끝자리를 0 으로 바꾼 값이 최소 버전입니다.
+
+### 로컬 미리 보기
+
+GitHub Pages 와 같은 Jekyll 3.10 으로 확인하세요. `{% include %}` 인자에는 `p[1].icon` 같은 대괄호 값을 넣을 수 없습니다 — `{% assign %}` 으로 먼저 담으세요.
+
+```bash
+gem install jekyll -v 3.10.0 && gem install kramdown-parser-gfm
+jekyll serve        # → http://127.0.0.1:4000/
+```
+
+### 파일 소유
+
+| 경로 | 원본 |
+|---|---|
+| `index.md` · `_layouts/` · `_includes/` · `_data/` · `assets/` · `*/index.md` · `pagemark-version.json` | 이 저장소 |
+| `calit/` 안의 문서 (`index.md` 제외) | [`vexspace/calit`](https://github.com/vexspace/calit) 의 워크플로가 교체 |
+| `pagemark/` 안의 문서 (`index.md` 제외) | [`vexspace/pagemark`](https://github.com/vexspace/pagemark) 의 워크플로가 교체 |
+
+프로젝트 추가: `_data/projects.yml` 항목 + `assets/icons/<slug>.png`(160px) + `<slug>/index.md`(`layout: project`, `project: <slug>`).
+공개 문서는 front matter 에 `layout: doc` · `title` · `project` · `doc: true` · `updated` · `permalink` 를 적습니다.
+
+</details>
+
+# Get in touch
+
+- ✉️ [vexspace.io@gmail.com](mailto:vexspace.io@gmail.com) — 문의 · 오류 제보 · 개인정보 관련 요청
+- 🌐 [vexspace.github.io](https://vexspace.github.io/)
+
+---
+
+<p align="center">© VexSpace</p>

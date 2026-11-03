@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="200" viewBox="0 0 880 200" role="img" aria-labelledby="t d">
+  <title id="t">VexSpace</title>
+  <desc id="d">개인 개발자 Vex 가 만드는 작은 도구들 — 프로젝트 내려받기와 공개 문서</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f7f6"/>
+      <stop offset="1" stop-color="#e4eef0"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#1f5f6b" stroke-opacity=".06" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="880" height="200" rx="18" fill="url(#bg)"/>
+  <rect width="880" height="200" rx="18" fill="url(#grid)"/>
+  <g transform="translate(64 52)">
+    <rect width="96" height="96" rx="22" fill="#1f5f6b"/>
+    <path d="M30 30 L48 66 L66 30" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="190" y="104" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="52" font-weight="700" fill="#1c1d1a" letter-spacing="-1">Vex<tspan fill="#1f5f6b">Space</tspan></text>
+  <text x="192" y="140" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="19" fill="#4c4e48">매일 쓰이고 오래 쓰이는 작은 도구 · 내려받기와 공개 문서</text>
+</svg>
