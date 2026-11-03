@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /pagemark/version.json
+# 원본은 _data/versions.yml — 여기서 고치지 않는다. 앱(team.vexspace.pagemark)이 이 주소를 읽어 강제 업데이트를 가른다.
+# pagemark/ 폴더 밖에 두는 이유: pagemark 저장소의 처리방침 동기화가 그 폴더를 통째로 바꾼다(index.md 만 남긴다).
+---
+{% assign v = site.data.versions.pagemark %}{ "pagemark": { {% for p in v %}"{{ p[0] }}": { "latest": {{ p[1].latest | jsonify }}{% if p[1].minimum %}, "minimum": {{ p[1].minimum | jsonify }}{% endif %}, "url": {{ p[1].url | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %} } }

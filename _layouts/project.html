@@ -3,13 +3,15 @@ layout: default
 ---
 {% assign proj = site.data.projects | where: "slug", page.project | first %}
 {% assign docs = site.pages | where: "project", page.project | where: "doc", true | sort: "title" %}
+{% assign dl = site.data.versions[page.project] %}
     <section class="project-head">
       <img class="mark" src="{{ proj.icon | relative_url }}" alt="{{ proj.name }} 앱 아이콘" width="64" height="64">
       <div>
         <h1>{{ proj.name }}</h1>
         <p>{{ proj.blurb }}</p>
         <div class="meta"><span class="status {{ proj.status_kind }}">{{ proj.status }}</span>{% for pf in proj.platforms %}<span class="chip">{{ pf }}</span>{% endfor %}</div>
-        {% if proj.store %}<div class="links"><a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a></div>{% endif %}
+        {% if proj.store or dl %}<div class="links">{% if proj.store %}<a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a>{% endif %}{% for p in dl %}<a class="primary" href="{{ p[1].url }}" rel="noopener">{{ p[1].label }} 내려받기 · {{ p[1].latest }}</a>{% endfor %}</div>{% endif %}
+        {% if dl %}<ul class="dl-notes">{% for p in dl %}{% if p[1].note %}<li><b>{{ p[1].label }}</b> — {{ p[1].note }}</li>{% endif %}{% endfor %}</ul>{% endif %}
       </div>
     </section>
 {{ content }}

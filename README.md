@@ -11,6 +11,14 @@ VexSpace 공개 문서 사이트(GitHub Pages, Jekyll). https://vexspace.github.
   - `calit/` ← `vexspace/calit` `.github/workflows/publish-privacy-policy.yaml`
   - `pagemark/` ← `vexspace/md-reader`(저장소 이름은 옛 이름 그대로) 같은 워크플로
 
+## 앱 내려받기 · 강제 업데이트 (Pagemark, 2026-11-04)
+
+- 원본은 `_data/versions.yml` 하나 — `/pagemark/version.json`(앱이 강제 업데이트를 가른다, `pagemark-version.json` 이 만든다)과
+  Pagemark 페이지의 내려받기 단추가 여기서 나온다.
+- 설치 파일(.dmg · .apk)은 저장소에 넣지 않고 이 저장소의 **Releases** 에 올린다(`pagemark-v<버전>` 태그). GitHub 저장소 파일은
+  100MB 가 넘으면 올라가지 않는다(.dmg 는 130MB 남짓).
+- 새 버전: Releases 에 올린 **뒤에** `latest` · `url` 을 바꾼다. 끝자리 업데이트도 강제해야 할 때만 `minimum` 을 적는다.
+
 ## 문서 파일 규약
 
 프로젝트 저장소가 밀어 넣는 문서는 front matter 에 다음을 적는다. 목록·경로·갱신일은 여기서 자동으로 만들어진다.
