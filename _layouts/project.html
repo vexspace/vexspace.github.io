@@ -16,11 +16,11 @@ layout: default
         스크립트는 방문한 기기에 맞는 항목을 단추에 먼저 보이고, 바깥 클릭 · Esc 로 닫기만 한다.{% endcomment %}
         <details class="dl" id="dl">
           <summary class="dl-pill" aria-label="내려받기">
-            <span class="dl-cur" data-key="{{ fk }}">{% include dl-icon.html name=fv.icon %}<span><span class="os">{{ fv.os }}</span> <span class="var">{{ fv.variant }}</span></span></span>
+            <span class="dl-cur" data-key="{{ fk }}">{% assign fic = fv.icon %}{% include dl-icon.html name=fic %}<span><span class="os">{{ fv.os }}</span> <span class="var">{{ fv.variant }}</span></span></span>
             <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
           </summary>
           <ul class="dl-menu">
-{% for p in dl %}            <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}">{% include dl-icon.html name=p[1].icon %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span></span><span class="size">{{ p[1].size }}</span></a></li>
+{% for p in dl %}{% assign ic = p[1].icon %}            <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}">{% include dl-icon.html name=ic %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span></span><span class="size">{{ p[1].size }}</span></a></li>
 {% endfor %}            <li class="sep" role="separator"></li>
             <li class="foot">버전 {{ fv.latest }} · <a href="https://github.com/vexspace/vexspace.github.io/releases?q={{ page.project }}&amp;expanded=true" rel="noopener">이전 버전 · 모든 파일</a></li>
           </ul>
