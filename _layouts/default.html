@@ -63,8 +63,30 @@
     .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .links a { font-size: 14px; padding: 6px 12px; border-radius: 7px; border: 1px solid var(--line); text-decoration: none; color: var(--ink-2); background: var(--surface); }
     .links a.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-    .dl-notes { margin: 10px 0 0; padding-left: 18px; font-size: 13px; color: var(--ink-3); }
-    .dl-notes li { margin: 2px 0; }
+    /* 내려받기 드롭다운 (_layouts/project.html · _data/versions.yml) */
+    .dl { position: relative; display: inline-block; margin-top: 18px; }
+    .dl > summary { list-style: none; }
+    .dl > summary::-webkit-details-marker { display: none; }
+    .dl-pill { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 18px; border-radius: 999px; background: #f3f2ef; color: var(--ink); cursor: pointer;
+      font: 500 16px/1 "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; box-shadow: 0 1px 2px rgba(0,0,0,.04), inset 0 0 0 1px rgba(0,0,0,.03); user-select: none; }
+    .dl-pill:hover { background: #ebeae6; }
+    .dl-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .dl-cur { display: inline-flex; align-items: center; gap: 10px; }
+    .dl .os { font-weight: 600; }
+    .dl .var { color: var(--ink-3); font-weight: 500; }
+    .dl .ico { width: 18px; height: 18px; flex: none; display: block; }
+    .dl .chev { width: 14px; height: 14px; color: var(--ink-2); transition: transform .15s; transform: rotate(180deg); }
+    .dl[open] .chev { transform: none; }
+    .dl-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 5; min-width: 320px; max-width: calc(100vw - 32px); padding: 10px; margin: 0; list-style: none; border-radius: 16px; background: #fff;
+      box-shadow: 0 12px 32px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.05); }
+    .dl-menu a { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; text-decoration: none; color: var(--ink);
+      font: 500 17px/1.3 "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; }
+    .dl-menu a:hover, .dl-menu a.cur { background: #f3f2ef; }
+    .dl-menu .size { color: var(--ink-3); font-size: 13px; font-weight: 400; font-variant-numeric: tabular-nums; }
+    .dl-menu .sep { height: 1px; background: var(--line); margin: 6px 8px; }
+    .dl-menu .foot { padding: 8px 14px 4px; font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
+    .dl-menu .foot a { display: inline; padding: 0; color: var(--ink-2); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    .dl-menu .foot a:hover { background: none; }
 
     /* 문서 본문(개인정보 처리방침 등) */
     article.doc { max-width: 860px; padding-top: 28px; }

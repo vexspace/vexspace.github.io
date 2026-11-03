@@ -17,7 +17,10 @@ VexSpace 공개 문서 사이트(GitHub Pages, Jekyll). https://vexspace.github.
   Pagemark 페이지의 내려받기 단추가 여기서 나온다.
 - 설치 파일(.dmg · .apk)은 저장소에 넣지 않고 이 저장소의 **Releases** 에 올린다(`pagemark-v<버전>` 태그). GitHub 저장소 파일은
   100MB 가 넘으면 올라가지 않는다(.dmg 는 130MB 남짓).
-- 새 버전: Releases 에 올린 **뒤에** `latest` · `url` 을 바꾼다. 끝자리 업데이트도 강제해야 할 때만 `minimum` 을 적는다.
+- 새 버전: Releases 에 올린 **뒤에** `latest` · `url` · `size` 를 바꾼다. 끝자리 업데이트도 강제해야 할 때만 `minimum` 을 적는다.
+- 페이지의 내려받기는 드롭다운 하나(`_layouts/project.html`, 아이콘 `_includes/dl-icon.html`). 항목마다 `os`(굵게) · `variant`(흐리게) ·
+  `icon`(`apple` · `android` · `windows`) · `size`. 방문한 기기에 맞는 항목이 단추에 먼저 보인다(자바스크립트가 없으면 첫 항목,
+  `<details>` 라 그래도 열린다). 새 플랫폼(Windows · macOS Intel 등)은 항목을 더하면 목록에 생긴다 — 키(`macos` · `android` …)는 앱이 읽는다.
 
 ## 문서 파일 규약
 

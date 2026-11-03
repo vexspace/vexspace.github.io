@@ -10,8 +10,39 @@ layout: default
         <h1>{{ proj.name }}</h1>
         <p>{{ proj.blurb }}</p>
         <div class="meta"><span class="status {{ proj.status_kind }}">{{ proj.status }}</span>{% for pf in proj.platforms %}<span class="chip">{{ pf }}</span>{% endfor %}</div>
-        {% if proj.store or dl %}<div class="links">{% if proj.store %}<a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a>{% endif %}{% for p in dl %}<a class="primary" href="{{ p[1].url }}" rel="noopener">{{ p[1].label }} 내려받기 · {{ p[1].latest }}</a>{% endfor %}</div>{% endif %}
-        {% if dl %}<ul class="dl-notes">{% for p in dl %}{% if p[1].note %}<li><b>{{ p[1].label }}</b> — {{ p[1].note }}</li>{% endif %}{% endfor %}</ul>{% endif %}
+        {% if proj.store %}<div class="links"><a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a></div>{% endif %}
+{% if dl %}{% for p in dl %}{% if forloop.first %}{% assign fk = p[0] %}{% assign fv = p[1] %}{% endif %}{% endfor %}
+        {% comment %}내려받기 드롭다운 — 원본 _data/versions.yml. 자바스크립트 없이도 <details> 로 열린다.
+        스크립트는 방문한 기기에 맞는 항목을 단추에 먼저 보이고, 바깥 클릭 · Esc 로 닫기만 한다.{% endcomment %}
+        <details class="dl" id="dl">
+          <summary class="dl-pill" aria-label="내려받기">
+            <span class="dl-cur" data-key="{{ fk }}">{% include dl-icon.html name=fv.icon %}<span><span class="os">{{ fv.os }}</span> <span class="var">{{ fv.variant }}</span></span></span>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
+          </summary>
+          <ul class="dl-menu">
+{% for p in dl %}            <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}">{% include dl-icon.html name=p[1].icon %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span></span><span class="size">{{ p[1].size }}</span></a></li>
+{% endfor %}            <li class="sep" role="separator"></li>
+            <li class="foot">버전 {{ fv.latest }} · <a href="https://github.com/vexspace/vexspace.github.io/releases?q={{ page.project }}&amp;expanded=true" rel="noopener">이전 버전 · 모든 파일</a></li>
+          </ul>
+        </details>
+        <script>
+          (function () {
+            var dl = document.getElementById('dl'); if (!dl) return
+            var ua = navigator.userAgent
+            var want = /Android/i.test(ua) ? 'android' : /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? 'macos' : /Windows/i.test(ua) ? 'windows' : null
+            var item = want && dl.querySelector('.dl-menu a[data-key="' + want + '"]')
+            if (item) {
+              var cur = dl.querySelector('.dl-cur')
+              cur.innerHTML = item.querySelector('.ico').outerHTML + item.querySelector('span').outerHTML
+              cur.dataset.key = want
+            }
+            var k = dl.querySelector('.dl-cur').dataset.key
+            var on = dl.querySelector('.dl-menu a[data-key="' + k + '"]'); if (on) on.classList.add('cur')
+            document.addEventListener('click', function (e) { if (dl.open && !dl.contains(e.target)) dl.open = false })
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dl.open = false })
+          })()
+        </script>
+{% endif %}
       </div>
     </section>
 {{ content }}
