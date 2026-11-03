@@ -42,8 +42,8 @@
 
 # Download
 
-가장 쉬운 방법은 각 프로젝트 페이지에서 기기에 맞는 파일을 고르는 것입니다 — 방문한 기기에 맞는 항목이 먼저 보입니다.
-파일을 직접 받으려면 아래 링크나 명령을 쓰세요.
+각 프로젝트 페이지에서 기기에 맞는 파일을 고르세요 — 방문한 기기에 맞는 항목이 먼저 보입니다.
+모든 버전의 파일은 [Releases](#releases) 에 있습니다.
 
 ## Pagemark
 
@@ -52,33 +52,6 @@
 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어입니다. 폴더 트리, 문서 사이 링크 이동, 쪽 넘김·스크롤 보기, 보이는 그대로 고치는 편집 모드(자동 저장)를 제공합니다.
 
 📖 [소개 · 내려받기 페이지](https://vexspace.github.io/pagemark/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/pagemark/privacy.html) · 📦 [모든 버전](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true)
-
-### macOS (Apple Silicon)
-
-[**Pagemark-1.2.0-arm64.dmg**](https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0-arm64.dmg) (131 MB) 를 받아 열고, Pagemark 를 응용 프로그램 폴더로 옮기세요.
-
-```bash
-curl -LO https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0-arm64.dmg
-open Pagemark-1.2.0-arm64.dmg
-```
-
-> **참고**: 아직 Apple 공증을 받지 않았습니다. 처음 열 때 "확인되지 않은 개발자" 경고가 뜨면 Finder 에서 Pagemark 를 우클릭 › **열기** 를 누르세요.
-
-### Android
-
-[**Pagemark-1.2.0.apk**](https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0.apk) (5.3 MB) 를 휴대폰에서 받아 여세요. 컴퓨터에 연결해 설치할 수도 있습니다.
-
-```bash
-curl -LO https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.0/Pagemark-1.2.0.apk
-adb install Pagemark-1.2.0.apk
-```
-
-> **참고**: 설치할 때 "출처를 알 수 없는 앱" 허용이 필요합니다. Google Play 에서 받은 Pagemark 와는 서명이 달라 서로 위에 설치되지 않습니다.
-
-### 업데이트
-
-앱이 켜질 때 새 버전을 확인합니다. 꼭 필요한 업데이트가 나오면 앱 안에서 안내하고, **업데이트** 를 누르면 새 설치 파일을 받습니다 —
-버전 정보는 [`/pagemark/version.json`](https://vexspace.github.io/pagemark/version.json) 에 있습니다.
 
 ## Calit
 
@@ -114,7 +87,7 @@ shasum -a 256 Pagemark-1.2.0-arm64.dmg Pagemark-1.2.0.apk
 
 1. 설치 파일을 Releases 에 `<프로젝트>-v<버전>` 태그로 올립니다.
 2. 올린 **뒤에** [`_data/versions.yml`](_data/versions.yml) 의 `latest` · `url` · `size` 를 바꿉니다 — 먼저 바꾸면 받을 파일이 없는데 앱이 업데이트를 요구합니다.
-3. push 하면 1~2분 뒤 프로젝트 페이지의 내려받기와 `version.json` 이 바뀝니다. 이 README 의 버전 링크도 함께 바꿉니다.
+3. push 하면 1~2분 뒤 프로젝트 페이지의 내려받기와 `version.json` 이 바뀝니다. 이 README 의 [Releases](#releases) 표에 있는 최신 태그도 함께 바꿉니다.
 
 `versions.yml` 의 `minimum` 은 비상시에만 적습니다(끝자리 업데이트도 강제할 때). 비우면 `latest` 의 끝자리를 0 으로 바꾼 값이 최소 버전입니다.
 
