@@ -2,10 +2,10 @@
 # slug 는 폴더 이름과 같아야 한다 — 문서 파일의 front matter `project:` 가 이 값으로 자기 프로젝트를 가리킨다.
 - slug: calit
   name: Calit
-  blurb: 기기 캘린더의 일정과 TODO를 위젯과 잠금 화면에서 바로 보고 정리하는 Android 앱
+  blurb: 기기 캘린더의 일정과 TODO를 위젯과 잠금 화면에서 바로 보고 정리하는 앱 — Android · macOS
   status: 출시 준비 중
   status_kind: prep      # live(진행 중·출시됨) | prep(출시 준비 중) — 출시 후 live 로 바꾼다
-  platforms: [Android]
+  platforms: [Android, macOS]   # 2026-11-07 macOS 앱(위젯 포함) 첫 배포. 내려받기는 _data/versions.yml
   icon: /assets/icons/calit.png
   # store: https://play.google.com/store/apps/details?id=team.vexspace.calit   ← 출시 후 주석 해제
 - slug: pagemark            # 2026-09-17 md-reader → Pagemark 리브랜딩(저장소 이름은 vexspace/md-reader 그대로)
