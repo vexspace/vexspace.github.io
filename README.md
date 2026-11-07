@@ -5,6 +5,7 @@
 <p align="center">
   <a href="https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment"><img alt="Pages" src="https://github.com/vexspace/vexspace.github.io/actions/workflows/pages/pages-build-deployment/badge.svg"></a>
   <a href="https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true"><img alt="Pagemark release" src="https://img.shields.io/github/v/release/vexspace/vexspace.github.io?filter=pagemark-*&label=Pagemark&color=1f5f6b"></a>
+  <a href="https://github.com/vexspace/vexspace.github.io/releases?q=calit&expanded=true"><img alt="Calit release" src="https://img.shields.io/github/v/release/vexspace/vexspace.github.io?filter=calit-*&label=Calit&color=1f5f6b"></a>
   <a href="https://github.com/vexspace/vexspace.github.io/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/vexspace/vexspace.github.io/total?label=downloads&color=4c4e48"></a>
   <img alt="Platforms" src="https://img.shields.io/badge/platforms-Android%20%7C%20macOS-eeefe9?labelColor=4c4e48">
 </p>
@@ -37,7 +38,7 @@
 | | 프로젝트 | 소개 | 플랫폼 | 내려받기 |
 |:-:|---|---|---|---|
 | <img src="assets/icons/pagemark.png" width="36" alt=""> | [**Pagemark**](#pagemark) | 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어 | Android · macOS | ✅ [바로 받기](#pagemark) |
-| <img src="assets/icons/calit.png" width="36" alt=""> | [**Calit**](#calit) | 기기 캘린더의 일정과 TODO 를 위젯·잠금 화면에서 보고 정리하는 앱 | Android | ⏳ 출시 준비 중 |
+| <img src="assets/icons/calit.png" width="36" alt=""> | [**Calit**](#calit) | 기기 캘린더의 일정과 TODO 를 위젯·잠금 화면에서 보고 정리하는 앱 | Android · macOS | ✅ [바로 받기](#calit) |
 
 # Download
 
@@ -56,11 +57,9 @@
 
 <img src="assets/icons/calit.png" width="56" align="right" alt="Calit 아이콘">
 
-기기 캘린더의 일정과 TODO 를 위젯과 잠금 화면에서 바로 보고 정리하는 Android 앱입니다.
+기기 캘린더의 일정과 TODO 를 위젯과 잠금 화면에서 바로 보고 정리하는 앱입니다. Android 앱과, 같은 캘린더를 두 쪽 펼침 노트처럼 보는 macOS 앱(위젯 포함)이 있습니다.
 
-📅 [소개 페이지](https://vexspace.github.io/calit/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/calit/privacy.html)
-
-> ⏳ **출시 준비 중** — Google Play 로 출시할 예정입니다. 출시되면 이 자리에 내려받기 방법이 생깁니다.
+📅 [소개 · 내려받기 페이지](https://vexspace.github.io/calit/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/calit/privacy.html) · 📦 [모든 버전](https://github.com/vexspace/vexspace.github.io/releases?q=calit&expanded=true)
 
 # Get in touch
 

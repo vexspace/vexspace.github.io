@@ -1,0 +1,8 @@
+---
+layout: null
+permalink: /calit/version.json
+# 원본은 _data/versions.yml — 여기서 고치지 않는다. pagemark-version.json 과 같은 모양.
+# ⚠️ Calit 안드로이드 앱은 이 파일을 읽지 않는다(강제 업데이트는 Calit 백엔드). 맥 앱도 아직 안 읽는다 — 내려받기 안내·앞으로를 위한 자리.
+# calit/ 폴더 밖에 두는 이유: pagemark 와 같다(프로젝트 폴더는 문서 동기화가 통째로 바꿀 수 있다).
+---
+{% assign v = site.data.versions.calit %}{ "calit": { {% for p in v %}"{{ p[0] }}": { "latest": {{ p[1].latest | jsonify }}{% if p[1].minimum %}, "minimum": {{ p[1].minimum | jsonify }}{% endif %}, "url": {{ p[1].url | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %} } }
