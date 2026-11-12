@@ -13,25 +13,26 @@
     /* 라이트 고정 — 다크 테마 없음(2026-09-16 결정). 색·타입은 설계 미리보기(claude.ai/artifact/2u9cBYQ2HfqL2FxeL5ds97)와 같다 */
     :root { color-scheme: light;
       --bg: #ffffff; --surface: #ffffff; --ink: #1c1d1a; --ink-2: #4c4e48; --ink-3: #7b7d76; --line: #dcded7;
-      --accent: #1f5f6b; --accent-ink: #ffffff; --accent-soft: #e4eef0; --chip: #eeefe9;
+      --accent: #2f5be0; --accent-ink: #ffffff; --accent-soft: #e6ecfc; --chip: #eeefe9;  /* 강조색 = 앱 아이콘 파랑 (2026-11-12) */
       --status-live: #2f7a3e; --status-live-bg: #e6f2e8; --status-prep: #8a5a12; --status-prep-bg: #f6ecd9; }
     * { box-sizing: border-box; }
-    body { margin: 0; padding-block: 0 64px; padding-inline: 16px; background: var(--bg); color: var(--ink);
+    body { margin: 0; padding-block: 0 64px; background: var(--bg); color: var(--ink);
       font-family: "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 16px; line-height: 1.75; word-break: keep-all; }
     h1, h2, h3, .brand, .card h3, .doc-title { font-family: "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; text-wrap: balance; }
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-    .site { max-width: 920px; margin: 0 auto; }
-    header.top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-block: 22px 18px; border-bottom: 1px solid var(--line); }
-    .brand { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
-    .brand span { color: var(--accent); }
+    /* 좌우 여백은 .site 가 갖는다 — 앱 페이지 머리(.app-hero)는 화면 끝까지 칠하고 안쪽만 같은 폭으로 맞춘다 */
+    .site, .app-hero .in { max-width: 952px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+    header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 20px 18px; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; text-decoration: none; }
+    .brand img { width: 22px; height: 22px; display: block; }
     nav.crumbs { font-size: 14px; color: var(--ink-3); }
     nav.crumbs a { color: var(--ink-2); text-decoration: none; }
     nav.crumbs a:hover { text-decoration: underline; }
 
-    .intro { padding-block: 40px 8px; max-width: 760px; }
-    .intro h1 { font-size: clamp(28px, 4vw, 38px); line-height: 1.25; margin: 0 0 18px; letter-spacing: -0.02em; }
-    .intro p { margin: 0 0 14px; color: var(--ink-2); font-size: 17px; }
+    .intro { padding-block: 48px 8px; max-width: 760px; }
+    .intro h1 { font-size: clamp(24px, 3.6vw, 34px); font-weight: 600; line-height: 1.35; margin: 0 0 16px; letter-spacing: -0.025em; }
+    .intro p { margin: 0; color: var(--ink-2); font-size: 17px; line-height: 1.85; }
     .section-label { display: flex; align-items: center; gap: 16px; margin: 40px 0 20px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
     .section-label::before, .section-label::after { content: ""; flex: 1; height: 1px; background: var(--line); }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
@@ -88,6 +89,49 @@
     .dl-menu .foot a { display: inline; padding: 0; color: var(--ink-2); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
     .dl-menu .foot a:hover { background: none; }
 
+    /* 앱 페이지 머리 (_layouts/project.html · _data/projects.yml 의 headline · summary · plate · hero · gallery) */
+    .app-hero { overflow: hidden; }
+    .app-hero header.top { border-bottom: 0; padding-bottom: 28px; }
+    .app-hero .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 48px); align-items: end; }
+    .app-hero .txt { padding-bottom: 48px; display: grid; gap: 14px; justify-items: start; min-width: 0; }
+    .app-hero .appname { display: flex; align-items: center; gap: 12px; font-family: "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; font-weight: 600; font-size: 18px; }
+    .app-hero .appname .mark { width: 52px; height: 52px; box-shadow: none; }
+    .app-hero h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); font-weight: 700; line-height: 1.18; letter-spacing: -0.035em; }
+    .app-hero .sub { margin: 0; font-size: 16px; line-height: 1.75; max-width: 28em; }
+    .app-hero .dl { margin-top: 4px; }
+    .app-hero .dl-meta { font: 12.5px/1.4 "IBM Plex Mono", ui-monospace, Menlo, monospace; }
+    .app-hero .links { margin-top: 0; }
+    .shots { position: relative; display: flex; justify-content: center; align-items: flex-end; min-width: 0; }
+    .shots .phone { width: 44%; max-width: 230px; border-radius: 26px 26px 0 0; overflow: hidden; border: 6px solid #22293a; border-bottom: 0; flex: none; }
+    .shots .phone + .phone { margin-left: -6%; margin-bottom: -40px; }
+    .shots img { display: block; width: 100%; height: auto; }
+    .shots .mac { width: 88%; border-radius: 10px 10px 0 0; overflow: hidden; background: #f9f8f6; box-shadow: 0 18px 40px rgba(20,40,80,.18), 0 0 0 1px #dfe3ea; }
+    .shots .mac .tl { display: flex; gap: 6px; padding: 9px 11px; background: #e9e7e3; }
+    .shots .mac .tl i { width: 9px; height: 9px; border-radius: 50%; background: #c9c6c0; display: block; }
+    .shots .mac img { aspect-ratio: 820 / 640; object-fit: cover; object-position: top; }
+    .shots .mac + .phone { position: absolute; right: 0; bottom: 0; width: 30%; margin: 0; }
+    .app-hero.dark { background: #101827; color: #fff; }
+    .app-hero.dark .sub { color: #c4cde0; }
+    .app-hero.dark .dl-meta, .app-hero.dark nav.crumbs { color: #8d9ab5; }
+    .app-hero.dark nav.crumbs a { color: #c4cde0; }
+    .app-hero.dark .shots .phone { border-color: #2a3550; }
+    .app-hero.paper { background: linear-gradient(#e6ebf2 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, #e6ebf2 1px, transparent 1px) 0 0 / 28px 28px, #f5f7fa; }
+    .app-hero.paper .sub { color: #4d5a72; }
+    .app-hero.paper .dl-meta { color: #75809a; }
+    .app-hero.paper .dl-pill { background: #14161b; color: #fff; }
+    .app-hero.paper .dl-pill:hover { background: #2a2d35; }
+    .app-hero.paper .dl-pill .var, .app-hero.paper .dl-pill .chev { color: #b9bec8; }
+    .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 36px 0 0; padding: 0; list-style: none; }
+    .gallery figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+    .gallery .pic { aspect-ratio: 9 / 13; max-width: 100%; border-radius: 12px; overflow: hidden; background: #101827; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .gallery figcaption { font-size: 14px; color: var(--ink-2); }
+    @media (max-width: 720px) {
+      .app-hero .grid { grid-template-columns: 1fr; }
+      .app-hero .txt { padding-bottom: 8px; }
+      .gallery { grid-template-columns: repeat(3, 62%); overflow-x: auto; padding-bottom: 6px; }
+    }
+
     /* 문서 본문(개인정보 처리방침 등) */
     article.doc { max-width: 860px; padding-top: 28px; }
     article.doc h1 { font-size: 1.7em; line-height: 1.3; margin: 0 0 0.6em; }
@@ -107,13 +151,12 @@
   </style>
 </head>
 <body>
+{% comment %}앱 페이지(_layouts/project.html)는 머리를 화면 끝까지 칠하려고 머리 · 본문의 .site 를 스스로 연다. 바닥글만 여기서 붙인다.{% endcomment %}{% if page.layout == "project" %}{{ content }}
   <div class="site">
-    <header class="top">
-      <a class="brand" href="{{ '/' | relative_url }}"><span>Vex</span>Space</a>
-      <nav class="crumbs" aria-label="경로">{% if page.project %}<a href="{{ '/' | relative_url }}">홈</a> › {% if page.layout == "doc" and proj %}<a href="{{ '/' | append: proj.slug | append: '/' | relative_url }}">{{ proj.name }}</a> › {{ page.title }}{% elsif proj %}{{ proj.name }}{% endif %}{% endif %}</nav>
-    </header>
+{% else %}  <div class="site">
+{% include top.html %}
 {{ content }}
-    <footer class="site-foot">
+{% endif %}    <footer class="site-foot">
       <span>© {{ site.time | date: "%Y" }} VexSpace</span>
       <a href="mailto:vexspace.io@gmail.com">vexspace.io@gmail.com</a>
       <a href="https://github.com/vexspace" rel="noopener">GitHub</a>

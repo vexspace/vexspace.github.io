@@ -1,0 +1,5 @@
+{% comment %}사이트 머리 — 워드마크 · 경로. _layouts/default.html 과 앱 페이지 머리(_layouts/project.html)가 함께 쓴다.{% endcomment %}{% assign tp = nil %}{% if page.project %}{% assign tp = site.data.projects | where: "slug", page.project | first %}{% endif %}
+    <header class="top">
+      <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/icons/vexspace.svg' | relative_url }}" alt="" width="22" height="22">VexSpace</a>
+      <nav class="crumbs" aria-label="경로">{% if page.project %}<a href="{{ '/' | relative_url }}">홈</a> › {% if page.layout == "doc" and tp %}<a href="{{ '/' | append: tp.slug | append: '/' | relative_url }}">{{ tp.name }}</a> › {{ page.title }}{% elsif tp %}{{ tp.name }}{% endif %}{% endif %}</nav>
+    </header>

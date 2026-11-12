@@ -7,6 +7,17 @@
   status_kind: prep      # live(진행 중·출시됨) | prep(출시 준비 중) — 출시 후 live 로 바꾼다
   platforms: [Android, macOS]   # 2026-11-07 macOS 앱(위젯 포함) 첫 배포. 내려받기는 _data/versions.yml
   icon: /assets/icons/calit.png
+  # 앱 페이지 머리 (_layouts/project.html) — 없으면 머리를 예전처럼 아이콘 · 이름 · 설명만으로 그린다
+  headline: 앱을 열지 않아도 오늘 일정이 보이게
+  summary: 기기 캘린더의 일정과 TODO를 위젯과 잠금 화면에서 바로 보고 정리하는 앱입니다. macOS에서는 같은 캘린더를 두 쪽 펼친 노트처럼 봅니다.
+  plate: dark          # 머리 배경: dark(남색) | paper(격자 종이)
+  hero:                # 머리 오른쪽 화면, 2장까지. kind: phone | mac
+    - { src: /assets/shots/calit/week.jpg, kind: phone, alt: Calit 주간 위젯 }
+    - { src: /assets/shots/calit/todo.jpg, kind: phone, alt: Calit 오늘 할 일 화면 }
+  gallery:             # 머리 아래 화면 줄. 캡처는 예시 일정으로 찍은 것만 쓴다
+    - { src: /assets/shots/calit/week.jpg,  caption: 주간 위젯 · 할 일과 한 주 일정을 한 장에 }
+    - { src: /assets/shots/calit/month.jpg, caption: 월간 위젯 }
+    - { src: /assets/shots/calit/todo.jpg,  caption: 오늘 할 일 · 지난 미완료까지 }
   # store: https://play.google.com/store/apps/details?id=team.vexspace.calit   ← 출시 후 주석 해제
 - slug: pagemark            # 2026-09-17 md-reader → Pagemark 리브랜딩(저장소 이름은 vexspace/md-reader 그대로)
   name: Pagemark
@@ -15,3 +26,9 @@
   status_kind: prep
   platforms: [Android, macOS]   # iOS 는 당분간 지원하지 않는다(2026-09-16 사용자 결정). 내려받기는 _data/versions.yml
   icon: /assets/icons/pagemark.png
+  headline: 마크다운을 책처럼 한 장씩 넘겨 읽기
+  summary: 폴더 트리, 문서 사이 링크 이동, 쪽 넘김·스크롤 보기, 보이는 그대로 고치는 편집 모드(자동 저장)를 제공합니다.
+  plate: paper
+  hero:
+    - { src: /assets/shots/pagemark/macos.jpg,   kind: mac,   alt: Pagemark macOS 폴더 트리와 문서 }
+    - { src: /assets/shots/pagemark/android.jpg, kind: phone, alt: Pagemark Android 첫 화면 }
