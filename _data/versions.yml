@@ -27,12 +27,12 @@ pagemark:
     size: 5.3 MB
 calit:
   macos:
-    latest: "1.1.0"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.1.0/Calit-1.1.0-arm64.dmg
+    latest: "1.1.1"
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.1.1/Calit-1.1.1-arm64.dmg
     os: macOS
     variant: Apple Silicon
     icon: apple
-    size: 17.0 MB
+    size: 6.4 MB
   android:
     latest: "1.1.0"
     url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.1.0/Calit-1.1.0.apk
