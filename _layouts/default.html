@@ -6,6 +6,12 @@
 {% assign proj = nil %}{% if page.project %}{% assign proj = site.data.projects | where: "slug", page.project | first %}{% endif %}
   <title>{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }} · {{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }}{% else %}{{ page.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.url == "/" %}VexSpace는 개인 개발자 Vex가 운영하는 작은 공간입니다.{% else %}{{ page.description | default: proj.blurb | default: site.description }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{% if proj %}{{ proj.icon | absolute_url }}{% else %}{{ '/assets/og/vexspace.png' | absolute_url }}{% endif %}">
   {% if proj %}<link rel="icon" href="{{ proj.icon | relative_url }}" sizes="any">{% else %}<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="48x48"><link rel="icon" href="{{ '/assets/icons/vexspace_logo-192.png' | relative_url }}" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">{% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500&display=swap">
