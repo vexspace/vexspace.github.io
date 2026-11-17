@@ -96,7 +96,8 @@
     .dl-menu .foot a:hover { background: none; }
 
     /* 앱 페이지 머리 (_layouts/project.html · _data/projects.yml 의 headline · summary · plate · hero · gallery) */
-    .app-hero { overflow: hidden; }
+    /* 내려받기 메뉴가 히어로 아래로 펼쳐지므로 세로로는 자르지 않는다. 가로 넘침만 막고, 아래로 삐져나오는 화면 사진은 .shots 에서 자른다. */
+    .app-hero { overflow-x: clip; }
     .app-hero header.top { border-bottom: 0; padding-bottom: 28px; }
     .app-hero .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 48px); align-items: end; }
     .app-hero .txt { padding-bottom: 48px; display: grid; gap: 14px; justify-items: start; min-width: 0; }
@@ -107,7 +108,7 @@
     .app-hero .dl { margin-top: 4px; }
     .app-hero .dl-meta { font: 12.5px/1.4 "IBM Plex Mono", ui-monospace, Menlo, monospace; }
     .app-hero .links { margin-top: 0; }
-    .shots { position: relative; display: flex; justify-content: center; align-items: flex-end; min-width: 0; }
+    .shots { position: relative; display: flex; justify-content: center; align-items: flex-end; min-width: 0; clip-path: inset(-100vh -100vw 0 -100vw); }
     .shots .phone { width: 44%; max-width: 230px; border-radius: 26px 26px 0 0; overflow: hidden; border: 6px solid #22293a; border-bottom: 0; flex: none; }
     .shots .phone + .phone { margin-left: -6%; margin-bottom: -40px; }
     .shots img { display: block; width: 100%; height: auto; }
