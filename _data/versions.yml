@@ -34,9 +34,9 @@ calit:
     icon: apple
     size: 6.4 MB
   android:
-    latest: "1.1.1"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.1.1/Calit-1.1.1.apk
+    latest: "1.2.0"
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.2.0/Calit-1.2.0.apk
     os: Android
     variant: APK
     icon: android
-    size: 16.8 MB
+    size: 16.9 MB
