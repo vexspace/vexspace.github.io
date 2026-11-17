@@ -6,19 +6,10 @@ layout: default
 {% assign dl = site.data.versions[page.project] %}
 {% if dl %}{% for p in dl %}{% if forloop.first %}{% assign fk = p[0] %}{% assign fv = p[1] %}{% endif %}{% endfor %}{% endif %}
 {% capture download %}{% if dl %}
-        {% comment %}내려받기 드롭다운 — 원본 _data/versions.yml. 자바스크립트 없이도 <details> 로 열린다.
-        스크립트는 방문한 기기에 맞는 항목을 단추에 먼저 보이고(아래 버전 · 용량 줄도 함께), 바깥 클릭 · Esc 로 닫기만 한다.{% endcomment %}
-        <details class="dl" id="dl">
-          <summary class="dl-pill" aria-label="내려받기">
-            <span class="dl-cur" data-key="{{ fk }}">{% assign fic = fv.icon %}{% include dl-icon.html name=fic %}<span><span class="os">{{ fv.os }}</span> <span class="var">{{ fv.variant }}</span></span></span>
-            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
-          </summary>
-          <ul class="dl-menu">
-{% for p in dl %}{% assign ic = p[1].icon %}            <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}" data-meta="{{ p[1].latest }} · {{ p[1].size }}">{% include dl-icon.html name=ic %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span></span><span class="size">{{ p[1].size }}</span></a></li>
-{% endfor %}            <li class="sep" role="separator"></li>
-            <li class="foot">버전 {{ fv.latest }} · <a href="https://github.com/vexspace/vexspace.github.io/releases?q={{ page.project }}&amp;expanded=true" rel="noopener">이전 버전 · 모든 파일</a></li>
-          </ul>
-        </details>
+        {% comment %}내려받기 — 원본 _data/versions.yml. 단추 둘: Dev(개발 빌드) · Release(정식 출시, 없으면 "출시 예정" 비활성). 2026-11-17.
+        자바스크립트 없이도 <details> 로 열린다. 스크립트는 방문한 기기에 맞는 항목을 단추에 먼저 보이고(위 버전 · 용량 줄도 함께), 바깥 클릭 · Esc 로 닫기만 한다.{% endcomment %}
+        <div class="dl-row">
+{% include dl-drop.html ch="dev" dl=dl %}{% include dl-drop.html ch="release" dl=dl %}        </div>
 {% endif %}{% endcapture %}
 {% if proj.hero %}
   <section class="app-hero {{ proj.plate | default: 'paper' }}">
@@ -29,8 +20,8 @@ layout: default
           <div class="appname"><img class="mark" src="{{ proj.icon | relative_url }}" alt="" width="52" height="52">{{ proj.name }}</div>
           <h1>{{ proj.headline | default: proj.name }}</h1>
           <p class="sub">{{ proj.summary | default: proj.blurb }}</p>
+          {% if dl %}<div class="dl-head"><h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>다운로드</h2></div>{% endif %}
 {{ download }}
-          {% if dl %}<span class="dl-meta" id="dl-meta">{{ fv.latest }} · {{ fv.size }}</span>{% endif %}
           {% if proj.store %}<div class="links"><a class="primary" href="{{ proj.store }}" rel="noopener">Google Play</a></div>{% endif %}
         </div>
         <div class="shots">
@@ -59,34 +50,47 @@ layout: default
       </div>
     </section>
 {% endif %}
+{% comment %}정보 줄 (2026-11-17) — 세 칸: 설치 가이드 · 모든 버전 · 문의 (내려받기는 히어로 단추 위 줄, 개인정보 처리방침은 바닥글). 칸마다 위 강조선 · 아이콘 제목 · 짧은 설명 · 맨 아래 링크.
+"설치 가이드"는 /install/ (플랫폼별 페이지 install/<key>.md) 로 보낸다 — 스토어 밖 배포라 macOS(공증 없음) · Android(APK) 모두 첫 설치 때 경고가 뜬다.{% endcomment %}
+{% assign rel = "https://github.com/vexspace/vexspace.github.io/releases?q=" | append: page.project | append: "&expanded=true" %}
+{% assign guide = "/install/" | relative_url %}
+    <section class="info-row">
+{% if dl %}      <div class="info">
+        <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 2.8v5.2c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6.3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>설치 가이드</h2>
+        <p>스토어를 거치지 않은 앱이라 처음 설치하거나 열 때 경고가 뜹니다. 플랫폼별로 넘기는 방법을 안내합니다.</p>
+        <p class="go"><a href="{{ guide }}">설치 가이드 보기</a></p>
+      </div>
+{% endif %}{% if dl %}      <div class="info">
+        <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4M4 16.5l8 4 8-4"/></svg>모든 버전</h2>
+        <p>지난 버전과 모든 설치 파일은 GitHub Releases에 있습니다.</p>
+        <p class="go"><a href="{{ rel }}" rel="noopener">Releases 보기</a></p>
+      </div>
+{% endif %}      <div class="info">
+        <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6h17v12h-17z"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>문의</h2>
+        <p>오류 제보와 기능 제안은 이메일로 받습니다.</p>
+        <p class="go"><a href="mailto:vexspace.io@gmail.com">vexspace.io@gmail.com</a></p>
+      </div>
+    </section>
 {{ content }}
-    <div class="section-label">공개 문서</div>
-{% if docs.size > 0 %}
-    <ul class="doc-list">
-{% for d in docs %}      <li><a href="{{ d.url | relative_url }}"><span><span class="doc-title">{{ d.title }}</span>{% if d.description %}<span class="doc-sub">{{ d.description }}</span>{% endif %}</span><span class="doc-date">{% if d.updated %}{{ d.updated | date: "%Y-%m-%d" }} 갱신{% endif %}</span></a></li>
-{% endfor %}    </ul>
-{% else %}
-    <div class="empty">공개 문서를 준비하고 있습니다. 출시와 함께 개인정보 처리방침이 이 자리에 게시됩니다.</div>
-{% endif %}
   </div>
 {% if dl %}
   <script>
     (function () {
-      var dl = document.getElementById('dl'); if (!dl) return
-      var meta = document.getElementById('dl-meta')
+      var drops = [].slice.call(document.querySelectorAll('details.dl')); if (!drops.length) return
       var ua = navigator.userAgent
       var want = /Android/i.test(ua) ? 'android' : /Mac/i.test(ua) && !/iPhone|iPad/i.test(ua) ? 'macos' : /Windows/i.test(ua) ? 'windows' : null
-      var item = want && dl.querySelector('.dl-menu a[data-key="' + want + '"]')
-      if (item) {
-        var cur = dl.querySelector('.dl-cur')
-        cur.innerHTML = item.querySelector('.ico').outerHTML + item.querySelector('span').outerHTML
-        cur.dataset.key = want
-        if (meta) meta.textContent = item.dataset.meta
-      }
-      var k = dl.querySelector('.dl-cur').dataset.key
-      var on = dl.querySelector('.dl-menu a[data-key="' + k + '"]'); if (on) on.classList.add('cur')
-      document.addEventListener('click', function (e) { if (dl.open && !dl.contains(e.target)) dl.open = false })
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') dl.open = false })
+      drops.forEach(function (dl) {
+        var item = want && dl.querySelector('.dl-menu a[data-key="' + want + '"]')
+        if (item) {
+          var cur = dl.querySelector('.dl-cur')
+          cur.innerHTML = item.querySelector('.ico').outerHTML + item.querySelector('span').outerHTML
+          cur.dataset.key = want
+        }
+        var on = dl.querySelector('.dl-menu a[data-key="' + dl.querySelector('.dl-cur').dataset.key + '"]'); if (on) on.classList.add('cur')
+        dl.addEventListener('toggle', function () { if (dl.open) drops.forEach(function (o) { if (o !== dl) o.open = false }) })
+      })
+      document.addEventListener('click', function (e) { drops.forEach(function (dl) { if (dl.open && !dl.contains(e.target)) dl.open = false }) })
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') drops.forEach(function (dl) { dl.open = false }) })
     })()
   </script>
 {% endif %}

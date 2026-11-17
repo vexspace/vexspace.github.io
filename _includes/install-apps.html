@@ -1,0 +1,1 @@
+{% comment %}include.key 플랫폼을 지원하는 앱 이름 목록(_data/versions.yml 기준). 결과는 install_apps(배열)로 남는다.{% endcomment %}{% assign install_apps = "" | split: "" %}{% for pr in site.data.projects %}{% if site.data.versions[pr.slug][include.key] %}{% assign install_apps = install_apps | push: pr.name %}{% endif %}{% endfor %}

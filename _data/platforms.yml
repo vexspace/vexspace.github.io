@@ -1,0 +1,14 @@
+# 설치 가이드(/install/)의 플랫폼 목록 (2026-11-17). 순서 = 탭 · 카드 순서.
+# key 는 _data/versions.yml 의 키(macos · android …)와 같아야 한다 — 그 키가 있는 앱을 "지원 앱"으로 보인다.
+- key: macos
+  name: macOS
+  icon: apple
+- key: windows
+  name: Windows
+  icon: windows
+- key: android
+  name: Android
+  icon: android
+- key: ios
+  name: iOS
+  icon: apple

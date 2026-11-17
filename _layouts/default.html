@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 {% assign proj = nil %}{% if page.project %}{% assign proj = site.data.projects | where: "slug", page.project | first %}{% endif %}
-  <title>{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }} · {{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
+  <title>{% if page.url == "/" %}{{ site.title }}{% elsif page.layout == "doc" and proj %}{{ proj.name }} {{ page.title }} · {{ site.title }}{% elsif page.parent %}{{ page.parent.title }} · {{ page.title }} · {{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.title }}">
@@ -84,12 +84,25 @@
     .dl .ico { width: 18px; height: 18px; flex: none; display: block; }
     .dl .chev { width: 14px; height: 14px; color: var(--ink-2); transition: transform .15s; transform: rotate(180deg); }
     .dl[open] .chev { transform: none; }
-    .dl-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 5; min-width: 320px; max-width: calc(100vw - 32px); padding: 10px; margin: 0; list-style: none; border-radius: 16px; background: #fff;
+    .dl-menu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 5; min-width: 360px; max-width: calc(100vw - 32px); padding: 10px; margin: 0; list-style: none; border-radius: 16px; background: #fff;
       box-shadow: 0 12px 32px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.05); }
     .dl-menu a { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 10px; text-decoration: none; color: var(--ink);
       font: 500 17px/1.3 "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; }
     .dl-menu a:hover, .dl-menu a.cur { background: #f3f2ef; }
     .dl-menu .size { color: var(--ink-3); font-size: 13px; font-weight: 400; font-variant-numeric: tabular-nums; }
+    /* 채널 (2026-11-17) — Dev 줄 위, Release 줄 아래(왼쪽 채널 이름 · 같은 폭 단추), 출시 전 Release 는 비활성. 위 줄은 "다운로드 · 버전 · 용량" */
+    /* 출시 전 Release 단추 — Dev 단추와 같은 모양, 회색 */
+    .dl-pill.off, .dl-pill.off:hover { cursor: default; background: #c3c8d1; color: #fff; }
+    .dl-pill.off .os { font-weight: 600; }
+    .app-hero.paper .dl-pill.off, .app-hero.paper .dl-pill.off:hover { background: #c3c8d1; color: #fff; }
+    .app-hero.dark .dl-pill.off, .app-hero.dark .dl-pill.off:hover { background: #2e384d; color: #a7b2c8; }
+    .dl-row { display: grid; grid-template-columns: auto minmax(0, max-content); gap: 10px 14px; align-items: center; justify-self: start; max-width: 100%; }
+    .dl-ch { font: 600 12px/1 "IBM Plex Mono", ui-monospace, Menlo, monospace; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+    .dl-row .dl { display: block; }
+    .dl-row .dl-pill { width: 100%; justify-content: space-between; }
+    .app-hero.paper .dl-ch { color: #75809a; }
+    .app-hero.dark .dl-ch { color: #8d9ab5; }
+    .dl .ch, .info .ch { display: inline-block; vertical-align: 1px; margin-left: 4px; padding: 2px 6px; border-radius: 5px; font: 600 10.5px/1.2 "IBM Plex Mono", ui-monospace, Menlo, monospace; letter-spacing: 0.04em; background: var(--status-prep-bg); color: var(--status-prep); }
     .dl-menu .sep { height: 1px; background: var(--line); margin: 6px 8px; }
     .dl-menu .foot { padding: 8px 14px 4px; font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
     .dl-menu .foot a { display: inline; padding: 0; color: var(--ink-2); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
@@ -99,7 +112,7 @@
     /* 내려받기 메뉴가 히어로 아래로 펼쳐지므로 세로로는 자르지 않는다. 가로 넘침만 막고, 아래로 삐져나오는 화면 사진은 .shots 에서 자른다. */
     .app-hero { overflow-x: clip; }
     .app-hero header.top { border-bottom: 0; padding-bottom: 28px; }
-    .app-hero .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(24px, 4vw, 48px); align-items: end; }
+    .app-hero .grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 48px); align-items: end; }
     .app-hero .txt { padding-bottom: 48px; display: grid; gap: 14px; justify-items: start; min-width: 0; }
     .app-hero .appname { display: flex; align-items: center; gap: 12px; font-family: "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; font-weight: 600; font-size: 18px; }
     .app-hero .appname .mark { width: 52px; height: 52px; box-shadow: none; }
@@ -108,6 +121,16 @@
     .app-hero .dl { margin-top: 4px; }
     .app-hero .dl-meta { font: 12.5px/1.4 "IBM Plex Mono", ui-monospace, Menlo, monospace; }
     .app-hero .links { margin-top: 0; }
+    /* 앱 페이지 정보 줄 (_layouts/project.html .info-row) — 칸마다 위 강조선 · 아이콘 제목 · 설명 · 맨 아래 링크 */
+    .info-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin: 44px 0 8px; }
+    .info { display: flex; flex-direction: column; border-top: 4px solid var(--accent); padding-top: 16px; }
+    .info h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+    .info h2 svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .info p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.7; color: var(--ink-2); }
+    .info p:not(.go) { flex: 1; }
+    .info .go { margin: 0; }
+    .info .go a { color: var(--accent); text-decoration: none; }
+    .info .go a:hover { text-decoration: underline; text-underline-offset: 3px; }
     .shots { position: relative; display: flex; justify-content: center; align-items: flex-end; min-width: 0; clip-path: inset(-100vh -100vw 0 -100vw); }
     .shots .phone { width: 44%; max-width: 230px; border-radius: 26px 26px 0 0; overflow: hidden; border: 6px solid #22293a; border-bottom: 0; flex: none; }
     .shots .phone + .phone { margin-left: -6%; margin-bottom: -40px; }
@@ -128,6 +151,14 @@
     .app-hero.paper .dl-pill { background: #14161b; color: #fff; }
     .app-hero.paper .dl-pill:hover { background: #2a2d35; }
     .app-hero.paper .dl-pill .var, .app-hero.paper .dl-pill .chev { color: #b9bec8; }
+    .dl-row .dl, .app-hero .dl-row .dl { margin-top: 0; }
+    .project-head .dl-row { margin-top: 18px; }
+    /* 다운로드 제목 — 정보 줄의 .info h2 와 같은 모양(파란 아이콘 · 19px 600) + 옆에 버전 · 용량 */
+    .dl-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 4px 0 -2px; }
+    .dl-head h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+    .dl-head h2 svg { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .app-hero.paper .dl-head h2 { color: #14161b; }
+    .app-hero.dark .dl-head h2 svg { stroke: #7b9cff; }
     .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 36px 0 0; padding: 0; list-style: none; }
     .gallery figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
     .gallery .pic { aspect-ratio: 9 / 13; max-width: 100%; border-radius: 12px; overflow: hidden; background: #101827; }
@@ -149,10 +180,38 @@
     article.doc th { background: var(--chip); white-space: nowrap; }
     article.doc a { color: var(--accent); }
     article.doc code { font-size: 0.92em; background: var(--chip); padding: 1px 4px; border-radius: 3px; }
+    article.doc pre { margin: 0.6em 0 1em; padding: 12px 14px; border-radius: 8px; background: var(--chip); overflow-x: auto; max-width: 100%; }
+    article.doc pre code { background: none; padding: 0; font-size: 13.5px; }
+    article.doc blockquote { margin: 0.8em 0 1.2em; padding: 14px 18px; border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--accent-soft); color: var(--ink-2); }
+    article.doc blockquote p { margin: 0; }
+    /* 설치 가이드 (/install/) — 플랫폼 카드 · 플랫폼 탭 */
+    .pf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 20px 0 8px; }
+    .pf-card { display: grid; gap: 6px; padding: 18px; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 4px 4px 10px 10px; text-decoration: none; color: var(--ink); }
+    article.doc .pf-card { color: var(--ink); }
+    .pf-card:hover { border-color: var(--accent); }
+    .pf-card.off { border-top-color: var(--line); }
+    .pf-card.off .pf-name { color: var(--ink-3); }
+    .pf-name { display: flex; align-items: center; gap: 8px; font-family: "IBM Plex Sans KR", "Noto Sans KR", -apple-system, sans-serif; font-size: 19px; font-weight: 600; }
+    .pf-name .ico, .pf-tabs .ico { width: 20px; height: 20px; flex: none; }
+    .pf-sub { font-size: 14px; color: var(--ink-3); }
+    .pf-tabs { display: flex; gap: 4px; margin-top: 24px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+    .pf-tabs a { display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; font-size: 15px; font-weight: 500; color: var(--ink-2); text-decoration: none; border-bottom: 3px solid transparent; margin-bottom: -1px; white-space: nowrap; }
+    .pf-tabs a .ico { width: 16px; height: 16px; }
+    .pf-tabs a:hover { color: var(--ink); }
+    .pf-tabs a[aria-current="page"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+    .pf-tabs a.off { color: var(--ink-3); }
+    .pf-apps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: var(--ink-3); margin: 0 0 4px; }
+    article.guide > h2:first-of-type { margin-top: 1.2em; }
     .doc-meta { font-size: 13px; color: var(--ink-3); margin-bottom: 8px; }
 
-    footer.site-foot { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    footer.site-foot { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line); font-size: 12.5px; line-height: 1.7; color: var(--ink-3); text-align: center; }
+    footer.site-foot p { margin: 0; }
     footer.site-foot a { color: var(--ink-3); }
+    .foot-links { display: flex; flex-wrap: wrap; justify-content: center; row-gap: 6px; margin-bottom: 12px; font-size: 13.5px; }
+    .foot-links a { padding: 0 14px; color: var(--ink-2); text-decoration: none; line-height: 1.1; }
+    .foot-links a + a { border-left: 1px solid var(--line); }
+    .foot-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .foot-links a.strong { color: var(--ink); font-weight: 700; }
     @media (max-width: 480px) { .project-head { grid-template-columns: 1fr; } .card .docs-count { margin-left: 0; width: 100%; } }
     @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
   </style>
@@ -163,10 +222,17 @@
 {% else %}  <div class="site">
 {% include top.html %}
 {{ content }}
-{% endif %}    <footer class="site-foot">
-      <span>© {{ site.time | date: "%Y" }} VexSpace</span>
-      <a href="mailto:vexspace.io@gmail.com">vexspace.io@gmail.com</a>
-      <a href="https://github.com/vexspace" rel="noopener">GitHub</a>
+{% endif %}    {% comment %}바닥글 (2026-11-17) — 가운데 정렬 링크 줄(| 구분, 개인정보 처리방침은 굵게) · 연락처 · 저작권.
+    앱 페이지 · 그 앱의 문서에서는 그 앱의 처리방침만, 나머지 페이지에서는 앱마다 하나씩.{% endcomment %}
+    {% if page.project %}{% assign fdocs = site.pages | where: "project", page.project | where: "doc", true | sort: "title" %}{% else %}{% assign fdocs = site.pages | where: "doc", true | sort: "project" %}{% endif %}
+    <footer class="site-foot">
+      <nav class="foot-links" aria-label="사이트 정보">
+        <a href="{{ '/install/' | relative_url }}">설치 가이드</a>
+{% for d in fdocs %}{% assign dp = site.data.projects | where: "slug", d.project | first %}        <a href="{{ d.url | relative_url }}"{% if d.title contains "개인정보" %} class="strong"{% endif %}>{% unless page.project %}{{ dp.name }} {% endunless %}{{ d.title }}</a>
+{% endfor %}        <a href="https://github.com/vexspace" rel="noopener">GitHub</a>
+      </nav>
+      <p>개인 개발자 Vex · 이메일 : <a href="mailto:vexspace.io@gmail.com">vexspace.io@gmail.com</a></p>
+      <p>© {{ site.time | date: "%Y" }} VexSpace. All rights reserved.</p>
     </footer>
   </div>
 </body>

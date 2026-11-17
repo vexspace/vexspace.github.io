@@ -1,0 +1,4 @@
+{% comment %}설치 가이드 플랫폼 탭 — _data/platforms.yml. 지원 앱이 없는 플랫폼은 흐리게.{% endcomment %}
+<nav class="pf-tabs" aria-label="플랫폼">
+{% for pf in site.data.platforms %}{% include install-apps.html key=pf.key %}  <a href="{{ '/install/' | append: pf.key | append: '.html' | relative_url }}"{% if page.platform == pf.key %} aria-current="page"{% endif %}{% if install_apps.size == 0 %} class="off"{% endif %}>{% include dl-icon.html name=pf.icon %}{{ pf.name }}</a>
+{% endfor %}</nav>

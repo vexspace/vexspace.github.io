@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{% comment %}설치 가이드 플랫폼 페이지 (/install/<key>.html) — 위에 플랫폼 탭, 아래 본문. 앞 머리: platform(= _data/platforms.yml key), parent.{% endcomment %}
+{% include install-tabs.html %}
+{% include install-apps.html key=page.platform %}
+    <article class="doc guide">
+{% if page.updated %}      <p class="doc-meta">{{ page.updated | date: "%Y-%m-%d" }} 갱신</p>
+{% endif %}{% if install_apps.size > 0 %}      <p class="pf-apps">이 안내가 해당하는 앱: {% for a in install_apps %}<span class="chip">{{ a }}</span>{% endfor %}</p>
+{% endif %}{{ content }}
+    </article>

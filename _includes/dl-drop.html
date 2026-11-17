@@ -1,0 +1,16 @@
+{% comment %}내려받기 단추 하나 = 채널 하나 (include.ch: dev | release, include.dl: 그 앱의 versions). 2026-11-17.
+줄마다 왼쪽에 채널 이름(Develop · Release), 오른쪽에 단추. 그 채널 항목이 있으면 <details> 드롭다운, 없으면 "출시 예정" 비활성 단추. dev 는 channel 이 release 가 아닌 모든 항목.{% endcomment %}{% assign items = "" | split: "" %}{% for p in include.dl %}{% if include.ch == "release" %}{% if p[1].channel == "release" %}{% assign items = items | push: p %}{% endif %}{% else %}{% unless p[1].channel == "release" %}{% assign items = items | push: p %}{% endunless %}{% endif %}{% endfor %}{% assign tag = "DEV" %}{% if include.ch == "release" %}{% assign tag = "" %}{% endif %}
+          <span class="dl-ch">{% if include.ch == "release" %}Release{% else %}Develop{% endif %}</span>
+{% if items.size > 0 %}{% assign f = items.first %}          <details class="dl" data-ch="{{ include.ch }}">
+            <summary class="dl-pill" aria-label="{{ include.ch }} 내려받기">
+              <span class="dl-cur" data-key="{{ f[0] }}">{% assign fic = f[1].icon %}{% include dl-icon.html name=fic %}<span><span class="os">{{ f[1].os }}</span> <span class="var">{{ f[1].variant }}</span>{% if tag != "" %} <span class="ch">{{ tag }}</span>{% endif %}</span></span>
+              <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10l4-4 4 4"/></svg>
+            </summary>
+            <ul class="dl-menu">
+{% for p in items %}{% assign ic = p[1].icon %}              <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}" data-meta="{% if tag != "" %}Dev {% endif %}{{ p[1].latest }} · {{ p[1].size }}">{% include dl-icon.html name=ic %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span>{% if tag != "" %} <span class="ch">{{ tag }}</span>{% endif %}</span><span class="size">{{ p[1].size }}</span></a></li>
+{% endfor %}              <li class="sep" role="separator"></li>
+              <li class="foot">{% if tag != "" %}개발 버전 · 정식 출시 전에 미리 써 보는 빌드{% else %}정식 출시 버전{% endif %} · <a href="https://github.com/vexspace/vexspace.github.io/releases?q={{ page.project }}&amp;expanded=true" rel="noopener">모든 파일</a></li>
+            </ul>
+          </details>
+{% else %}          <span class="dl-pill off" aria-disabled="true"><span class="os">출시 준비 중입니다.</span></span>
+{% endif %}
