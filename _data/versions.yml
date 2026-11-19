@@ -31,13 +31,13 @@ pagemark:
     size: 5.3 MB
 calit:
   macos:
-    latest: "1.2.4"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.2.4/Calit-1.2.4-arm64.dmg
+    latest: "1.2.5"
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.2.5/Calit-1.2.5-arm64.dmg
     os: macOS
     variant: Apple Silicon
     icon: apple
     channel: dev
-    size: 6.4 MB
+    size: 6.5 MB
   android:
     latest: "1.2.2"
     url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.2.2/Calit-1.2.2.apk
