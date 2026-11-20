@@ -12,9 +12,9 @@
 # calit: 안드로이드 앱의 강제 업데이트는 여전히 Calit 백엔드(/api/config/app-version)가 가른다 — /calit/version.json 은 내려받기 안내용.
 pagemark:
   macos:
-    latest: "1.2.4"
-    # minimum: "1.2.4"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.4/Pagemark-1.2.4-arm64.dmg
+    latest: "1.2.5"
+    # minimum: "1.2.5"
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.2.5/Pagemark-1.2.5-arm64.dmg
     os: macOS
     variant: Apple Silicon
     icon: apple
