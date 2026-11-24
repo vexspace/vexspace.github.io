@@ -50,20 +50,14 @@ layout: default
       </div>
     </section>
 {% endif %}
-{% comment %}정보 줄 (2026-11-17) — 세 칸: 설치 가이드 · 모든 버전 · 문의 (내려받기는 히어로 단추 위 줄, 개인정보 처리방침은 바닥글). 칸마다 위 강조선 · 아이콘 제목 · 짧은 설명 · 맨 아래 링크.
+{% comment %}정보 줄 (2026-11-17) — 두 칸: 설치 가이드 · 문의 (2026-11-24 "모든 버전" 칸 삭제 — 최신 버전만 내려받게 한다, scripts/prune-releases.sh) (내려받기는 히어로 단추 위 줄, 개인정보 처리방침은 바닥글). 칸마다 위 강조선 · 아이콘 제목 · 짧은 설명 · 맨 아래 링크.
 "설치 가이드"는 /install/ (플랫폼별 페이지 install/<key>.md) 로 보낸다 — 스토어 밖 배포라 macOS(공증 없음) · Android(APK) 모두 첫 설치 때 경고가 뜬다.{% endcomment %}
-{% assign rel = "https://github.com/vexspace/vexspace.github.io/releases?q=" | append: page.project | append: "&expanded=true" %}
 {% assign guide = "/install/" | relative_url %}
     <section class="info-row">
 {% if dl %}      <div class="info">
         <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 2.8v5.2c0 4.3-3 7.6-7 9-4-1.4-7-4.7-7-9V6.3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>설치 가이드</h2>
         <p>스토어를 거치지 않은 앱이라 처음 설치하거나 열 때 경고가 뜹니다. 플랫폼별로 넘기는 방법을 안내합니다.</p>
         <p class="go"><a href="{{ guide }}">설치 가이드 보기</a></p>
-      </div>
-{% endif %}{% if dl %}      <div class="info">
-        <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4M4 16.5l8 4 8-4"/></svg>모든 버전</h2>
-        <p>지난 버전과 모든 설치 파일은 GitHub Releases에 있습니다.</p>
-        <p class="go"><a href="{{ rel }}" rel="noopener">Releases 보기</a></p>
       </div>
 {% endif %}      <div class="info">
         <h2><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6h17v12h-17z"/><path d="M3.5 6.5L12 13l8.5-6.5"/></svg>문의</h2>
