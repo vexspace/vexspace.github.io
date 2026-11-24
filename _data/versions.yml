@@ -13,18 +13,18 @@
 # calit: 안드로이드 앱의 강제 업데이트는 여전히 Calit 백엔드(/api/config/app-version)가 가른다 — /calit/version.json 은 내려받기 안내용.
 pagemark:
   macos:
-    latest: "1.8.1"
+    latest: "1.8.2"
     # minimum: "1.6.0"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.8.1/Pagemark-1.8.1-arm64.dmg
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.8.2/Pagemark-1.8.2-arm64.dmg
     os: macOS
     variant: Apple Silicon
     icon: apple
     channel: dev
     size: 131 MB
   android:
-    latest: "1.8.1"
+    latest: "1.8.2"
     # minimum: "1.6.0"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.8.1/Pagemark-1.8.1.apk
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/pagemark-v1.8.2/Pagemark-1.8.2.apk
     os: Android
     variant: APK
     icon: android
