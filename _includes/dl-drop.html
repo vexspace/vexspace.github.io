@@ -9,7 +9,7 @@
             <ul class="dl-menu">
 {% for p in items %}{% assign ic = p[1].icon %}              <li><a href="{{ p[1].url }}" rel="noopener" data-key="{{ p[0] }}" data-meta="{% if tag != "" %}Dev {% endif %}{{ p[1].latest }} · {{ p[1].size }}">{% include dl-icon.html name=ic %}<span><span class="os">{{ p[1].os }}</span> <span class="var">{{ p[1].variant }}</span>{% if tag != "" %} <span class="ch">{{ tag }}</span>{% endif %}</span><span class="size">{{ p[1].size }}</span></a></li>
 {% endfor %}              <li class="sep" role="separator"></li>
-              <li class="foot">{% if tag != "" %}개발 버전 · 정식 출시 전에 미리 써 보는 빌드{% else %}정식 출시 버전{% endif %} · <a href="https://github.com/vexspace/vexspace.github.io/releases?q={{ page.project }}&amp;expanded=true" rel="noopener">모든 파일</a></li>
+              <li class="foot">{% if tag != "" %}개발 버전 · 정식 출시 전에 미리 써 보는 빌드{% else %}정식 출시 버전{% endif %}</li>
             </ul>
           </details>
 {% else %}          <span class="dl-pill off" aria-disabled="true"><span class="os">출시 준비 중입니다.</span></span>

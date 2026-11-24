@@ -24,7 +24,7 @@
   <a href="https://vexspace.github.io/" target="_blank">🌐 사이트</a> •
   <a href="https://vexspace.github.io/pagemark/" target="_blank">📖 Pagemark</a> •
   <a href="https://vexspace.github.io/calit/" target="_blank">📅 Calit</a> •
-  <a href="https://github.com/vexspace/vexspace.github.io/releases" target="_blank">📦 모든 파일</a>
+  <a href="https://github.com/vexspace/vexspace.github.io/releases" target="_blank">📦 설치 파일</a>
 </p>
 
 ---
@@ -43,7 +43,7 @@
 # Download
 
 각 프로젝트 페이지에서 기기에 맞는 파일을 고르세요 — 방문한 기기에 맞는 항목이 먼저 보입니다.
-모든 버전의 파일은 [Releases](https://github.com/vexspace/vexspace.github.io/releases) 에 있습니다.
+[Releases](https://github.com/vexspace/vexspace.github.io/releases) 에는 최신 버전 파일만 남깁니다(새 버전을 올린 뒤 `scripts/prune-releases.sh <제품>`).
 
 ## Pagemark
 
@@ -51,7 +51,7 @@
 
 마크다운 문서를 전자책처럼 한 장씩 넘겨 읽는 뷰어입니다. 폴더 트리, 문서 사이 링크 이동, 쪽 넘김·스크롤 보기, 보이는 그대로 고치는 편집 모드(자동 저장)를 제공합니다.
 
-📖 [소개 · 내려받기 페이지](https://vexspace.github.io/pagemark/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/pagemark/privacy.html) · 📦 [모든 버전](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true)
+📖 [소개 · 내려받기 페이지](https://vexspace.github.io/pagemark/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/pagemark/privacy.html) · 📦 [설치 파일](https://github.com/vexspace/vexspace.github.io/releases?q=pagemark&expanded=true)
 
 ## Calit
 
@@ -59,7 +59,7 @@
 
 기기 캘린더의 일정과 TODO 를 위젯과 잠금 화면에서 바로 보고 정리하는 앱입니다. Android 앱과, 같은 캘린더를 두 쪽 펼침 노트처럼 보는 macOS 앱(위젯 포함)이 있습니다.
 
-📅 [소개 · 내려받기 페이지](https://vexspace.github.io/calit/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/calit/privacy.html) · 📦 [모든 버전](https://github.com/vexspace/vexspace.github.io/releases?q=calit&expanded=true)
+📅 [소개 · 내려받기 페이지](https://vexspace.github.io/calit/) · 🔒 [개인정보 처리방침](https://vexspace.github.io/calit/privacy.html) · 📦 [설치 파일](https://github.com/vexspace/vexspace.github.io/releases?q=calit&expanded=true)
 
 # Get in touch
 
