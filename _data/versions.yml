@@ -40,8 +40,8 @@ calit:
     channel: dev
     size: 6.8 MB
   android:
-    latest: "1.5.0"
-    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.5.0/Calit-1.5.0.apk
+    latest: "1.5.1"
+    url: https://github.com/vexspace/vexspace.github.io/releases/download/calit-v1.5.1/Calit-1.5.1.apk
     os: Android
     variant: APK
     icon: android
